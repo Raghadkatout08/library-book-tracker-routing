@@ -1,3 +1,7 @@
+export const metadata = {
+  title: "About us",
+  description : "welcome to about us page"
+}
 function AboutUs() {
     return (
       <div className="flex flex-col min-h-screen">
