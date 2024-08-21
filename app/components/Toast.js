@@ -3,7 +3,7 @@ import React from 'react';
 function Toast({ book, onClose }) {
   if (!book) return null;
   return (
-    <div className="fixed top-4 right-4 bg-yellow-400 text-white p-6 rounded-lg shadow-lg flex items-start space-x-4 max-w-sm z-50">
+    <div className=" right-6 bg-yellow-400 text-white p-6 rounded-lg shadow-lg flex items-start space-x-4 max-w-sx z-50">
       <div className="flex-1">
         <p className="font-bold text-lg">Book Added</p>
         <p className="mt-1"><strong>Title:</strong> {book.title}</p>

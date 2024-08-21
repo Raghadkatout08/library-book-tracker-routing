@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { ContextTheme } from "../context/theme";
 function Header() {
+
+    const {isDarkTheme, togglethemeHandler} = useContext(ContextTheme)
     return (
-        < nav class="bg-gray-700" >
+        < nav class="bg-gray-700 dark:bg-black" >
             <div class="container mx-auto py-4 flex justify-between items-center">
 
 
@@ -50,6 +54,14 @@ function Header() {
                     </span>
                     <input class="outline-none" type="text" placeholder="Search" />
                 </div>
+
+                <div class="flex items-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 3v1m0 16v1m-9-9h1m16 0h1M4.22 4.22l.707.707M18.364 18.364l.707.707M1 12a11 11 0 1022 0 11 11 0 10-22 0z" />
+                            </svg>
+                        <button onClick={togglethemeHandler} href="#" class="text-gray-50">Toggle Theme</button>
+                </div>
+
             </div>
         </nav >
     )
