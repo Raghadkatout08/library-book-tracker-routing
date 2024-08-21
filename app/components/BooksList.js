@@ -4,7 +4,7 @@ function BooksList({ books }) {
   const sortedBooks = useSortedBooks(books);
 
   if (!sortedBooks || sortedBooks.length === 0) {
-    return <p className="text-center text-gray-500">No books available.</p>;
+    return <p className="text-center text-gray-700 dark:text-white">No books available.</p>;
   }
 
   return (

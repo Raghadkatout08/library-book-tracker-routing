@@ -26,13 +26,17 @@ export default function ThemeWrapper({ children }) {
         document.querySelector("body").classList.toggle("dark");
         localStorage.setItem("isDarkTheme", JSON.stringify(newTheme));
     }
+
+    useEffect(() =>{
+    initialThemeHandler();
+    }, []);
+
     
     const globalState = {
-        isDarkTheme : true,
+        isDarkTheme,
         togglethemeHandler,
     };
 
-    useEffect(() => initialThemeHandler());
 
     return(
             <ContextTheme.Provider value={globalState}> 
