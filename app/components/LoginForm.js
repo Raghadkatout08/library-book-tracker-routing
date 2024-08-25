@@ -12,8 +12,6 @@ export default function LoginForm() {
 
         login({ username, password });
 
-        console.log(username, password)
-
     }
     return (
         <section className="bg-gray-50 dark:bg-gray-900">
