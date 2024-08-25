@@ -1,13 +1,20 @@
 import { useContext } from "react";
 import { ContextTheme } from "../context/theme";
+import { AuthContext } from "../context/auth";
+
 function Header() {
 
-    const {isDarkTheme, togglethemeHandler} = useContext(ContextTheme)
+    const { isDarkTheme, togglethemeHandler } = useContext(ContextTheme);
+    const { token, username, login, logout } = useContext(AuthContext);
+
+    const handleLogin = () => {
+        login({ username: 'user', password: 'pass' });
+    };
 
     const lightThemePath = "M12 3v1m0 16v1m-9-9h1m16 0h1M4.22 4.22l.707.707M18.364 18.364l.707.707M1 12a11 11 0 1022 0 11 11 0 10-22 0z";
     const darkThemePath = "M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z";
 
-        return (
+    return (
         < nav class="bg-gray-700 dark:bg-black" >
             <div class="container mx-auto py-4 flex justify-between items-center">
 
@@ -66,6 +73,17 @@ function Header() {
                     <button onClick={togglethemeHandler} className="text-gray-50">
                         {isDarkTheme ? "Switch to Light Mode" : "Switch to Dark Mode"}
                     </button>
+                </div>
+
+                <div className="flex items-center space-x-2">
+                    {token ? (
+                        <div className="flex items-center space-x-4">
+                            <span className="text-gray-50">Welcome, {username}!</span>
+                            <button onClick={logout} className="text-gray-50 bg-red-600 hover:bg-red-700 px-4 py-2 rounded">
+                                Logout
+                            </button>
+                        </div>
+                    ) : null}
                 </div>
 
             </div>
